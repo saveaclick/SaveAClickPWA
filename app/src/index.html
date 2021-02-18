@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- register service worker -->
+        <script>
+            if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(function() {
+                        console.log("Service Worker Registered, Cheers to PWA Fire 🐹`");
+                    });
+            });
+        }
+    </script>
+        <!-- end of service worker -->
+        <title>PWA Fire App - Workbox Progressive Web App Demo And Starter App</title>
+        <meta name="Description" content="Author : Maye Edwin, 
+    Publisher : PWAFire.Org, Category: Web, Language : Javascript, CSS, HTML, 
+    Availability : Open Source">
+        <meta name="theme-color" content="#fff" />
+        <!-- add web manifest -->
+        <link rel="manifest" href="/app.webmanifest">
+        <!-- add your web app icon url -->
+        <link rel="shortcut icon" sizes="32x32" href="https://pwafire.org/images/icons/pwafire32white.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- add canonical url -->
+        <link rel="canonical" href="https://pwafireapp.firebaseapp.com/">
+        <!-- add twitter meta data -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:site_name" content="PWA Fire App - Progressive Web App Starter App Built With Workbox">
+        <meta name="twitter:creator" content="@pwafire">
+        <meta name="twitter:title" content="PWA Fire App - Progressive Web App Starter App Built With Workbox">
+        <meta name="twitter:description" content="Progressive Web App Starter App Built With Workbox">
+        <meta name="twitter:image" content="https://pwafireapp.firebaseapp.com/images/banners/pwafireappbanner.gif">
+        <meta name="keywords" content="Maye Edwin, service worker, workbox, google developers, technology, PWAFire, javascript, json, web, progressive web apps, pwa" />
+        <meta name="author" content="Maye Edwin" />
+        <!-- add facebook sharing meta data -->
+        <meta property="og:title" content="PWA Fire App - Progressive Web App Starter App Built With Workbox">
+        <meta property="og:site_name" content="PWA Fire App - Progressive Web App Starter App Built With Workbox">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="Progressive Web App Starter App Built With Workbox">
+        <meta property="og:image" content="https://pwafireapp.firebaseapp.com/images/banners/pwafireappbanner.gif">
+        <meta property="og:image:type" content="image/png" />
+        <!-- add web app styles; below is just an example; delete it -->
+        <link rel="stylesheet" href="assets/css/main.css">
+        <!-- add more of your fonts + font awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+            crossorigin="anonymous">
+    </head>
+
+    <body>
+        <!--
+    just a demo to show how pwafireapp works
+    -->
+        <div class="pwafireapp">
+            <nav class="navbar">
+                <div class="header">
+                    Welcome To PWA Fire App
+                </div>
+            </nav>
+    
+            <div class="main-div">
+                <img class="app-logo" src="images/home/pwafireapp-frog-icon1.gif" alt="pwafireapp-logo">
+               <div class="header-intro">
+                <h1 id="title">
+                    I am a <code>Beta</code> version
+                </h1>
+    
+                <p id="desc" class="desktop">
+                    Starter Web App Designed With Progressive Web App Best Practices<br> And
+                    Packaged Ready For Your <a href="">PWA Project</a>
+                </p>
+                <p id="desc" class="mobile">
+                    Starter Web App Designed With Progressive Web App Best Practices And
+                    Packaged Ready For Your <a href="">PWA Project</a>
+                </p>
+               </div>
+                <h1 id="title">
+                    Getting set up?
+                </h1>
+                <p id="desc">
+                    You need basic HTML, CSS and JavaScript skills <br>Have fun with me!
+                    Man's got to code better and relaxed 😋 😎
+                </p>
+    
+                <div class="navigate">
+                    <p>
+                        <a id="customButton" href="https://pwafire.org/developer/app" target="_blank" rel="noopener">Get
+                            Started <i class="fas fa-rocket"></i></a></p>
+                    <p>
+                        <a id="customButton" href="latest/index.html">Latest News <i class="fas fa-lightbulb"></i></a>
+                    </p>
+                </div>
+    
+                <!--
+        Install/Share buttons, disabled by default 
+        -->
+                <div id="installContainer">
+                    <button id="buttonShare" type="button" disabled>
+                        Share
+                    </button>
+                    <button id="buttonInstall" type="button" disabled>
+                        Install
+                    </button>
+                </div>
+    
+    
+                <!--
+              <p id="shareNotSupported" class="hidden">
+            <code>navigator.share</code> is not supported in this
+            browser, try sharing from another app instead.
+          </p>
+          -->
+    
+                <p id="requireHTTPS" class="hidden">
+                    This page <b>must</b> be served over HTTPS. Please <a>reload this page via HTTPS</a>.
+                </p>
+    
+            </div>
+    
+            <!--
+        your web app
+        -->
+    
+            <!-- add web app scripts; below is just an 
+        example; delete it -->
+    
+            <footer class="footer">
+                <p>
+                    v1.0.0-beta // <a href="https://pwafire.org" target="_blank" rel="noopener">pwafire.org</a>
+                    // latest on <a href="https://github.com/mayeedwin/pwafireapp/releases" target="_blank" rel="noopner">Github</a>
+                </p>
+                <!-- 
+                add snackbar
+             -->
+                <div id="snackbar"></div>
+    
+            </footer>
+        </div>
+
+        <script src="assets/js/app.js"></script>
+        <script type="module">
+            import {Workbox} from 'https://storage.googleapis.com/workbox-cdn/releases/4.1.1/workbox-window.prod.mjs';
+            if ('serviceWorker' in navigator) {
+              const wb = new Workbox('/service-worker.js');
+              wb.register();
+            }
+        </script>
+    </body>
+
+</html>
